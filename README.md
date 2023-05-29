@@ -1,6 +1,6 @@
-# HALLP
+# MULTI-RDPS
 
-Heart disease prediction and expert system.
+Multiple Respiratory Disease Prediction System
 
 ## Run development server
 
