@@ -1,0 +1,29 @@
+{% extends 'layouts/layout.html' %} {% block page %}
+<div
+  class="flex flex-col justify-start gap-10 items-center pt-20 flex-grow w-full max-w-[1024px]"
+>
+  <h1 class="text-2xl font-light text-neutral-700">
+    Chronic Obstructive Pulmonary Disease (COPD) Prediction
+  </h1>
+
+  <form method="POST" class="grid w-full max-w-2xl grid-cols-3 gap-5">
+    <!-- GENDER -->
+    <select
+      type="text"
+      placeholder="Pick your gender"
+      class="w-full transition duration-300 text-base border border-transparent rounded-md h-[50px] px-3 !outline-0 bg-neutral-200 hover:border-neutral-400 focus:border-primary placeholder-neutral-500"
+    >
+      <option selected disabled>Pick your gender</option>
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+    </select>
+
+    <!-- AGE -->
+    <input
+      type="text"
+      placeholder="How old are you"
+      class="w-full transition duration-300 text-base border border-transparent rounded-md h-[50px] px-3 !outline-0 bg-neutral-200 hover:border-neutral-400 focus:border-primary placeholder-neutral-500"
+    />
+  </form>
+</div>
+{% endblock %}
