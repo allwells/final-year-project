@@ -1,4 +1,4 @@
-{% extends 'layouts/layout.html' %} {% block page %}
+{% extends 'layouts/app.html' %} {% block page %}
 <div
   class="flex flex-col justify-start gap-10 items-center pt-20 flex-grow w-full max-w-[1024px]"
 >
@@ -11,7 +11,7 @@
     <select
       type="text"
       placeholder="Pick your gender"
-      class="w-full transition duration-300 text-base border border-transparent rounded-md h-[50px] px-3 !outline-0 bg-neutral-200 hover:border-neutral-400 focus:border-primary placeholder-neutral-500"
+      class="w-full transition duration-300 text-base border border-transparent rounded-md h-[50px] px-3 !outline-0 bg-white hover:border-neutral-400 focus:border-primary placeholder-neutral-500"
     >
       <option selected disabled>Pick your gender</option>
       <option value="male">Male</option>
@@ -22,7 +22,7 @@
     <input
       type="text"
       placeholder="How old are you"
-      class="w-full transition duration-300 text-base border border-transparent rounded-md h-[50px] px-3 !outline-0 bg-neutral-200 hover:border-neutral-400 focus:border-primary placeholder-neutral-500"
+      class="w-full transition duration-300 text-base border border-transparent rounded-md h-[50px] px-3 !outline-0 bg-white hover:border-neutral-400 focus:border-primary placeholder-neutral-500"
     />
   </form>
 </div>

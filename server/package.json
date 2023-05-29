@@ -1,4 +1,14 @@
 {
+  "name": "mrdps",
+  "version": "1.0.0",
+  "description": "Final Year Project: Multiple Respiratory Disease Prediction System using Machine Learning Techniques",
+  "main": "app.py",
+  "author": "Allwell Onen",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "watch": "yarn tailwindcss -i ./app/static/src/css/input.css -o ./app/static/dist/css/output.css --watch"
+  },
   "dependencies": {
     "tailwindcss": "^3.3.2"
   }

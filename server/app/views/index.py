@@ -1,49 +1,42 @@
-from flask_sqlalchemy import SQLAlchemy
-from flask import Flask, render_template
+from flask import Blueprint, render_template
 
-app = Flask(__name__)
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///dev.db"
-db = SQLAlchemy(app)
+index = Blueprint("index", __name__, url_prefix="/")
 
 
-@app.route("/")
-@app.route("/index")
-def index():
+@index.route("/")
+@index.route("/index")
+def home():
     return render_template("index.html")
 
 
-@app.route("/covid-19-prediction")
+@index.route("/covid-19-prediction")
 def covid_19():
     return render_template("covid-19.html")
 
 
-@app.route("/copd-prediction")
+@index.route("/copd-prediction")
 def copd():
     return render_template("copd.html")
 
 
-@app.route("/pneumonia-prediction")
+@index.route("/pneumonia-prediction")
 def pneumonia():
     return render_template("pneumonia.html")
 
 
-@app.route("/tuberculosis-prediction")
+@index.route("/tuberculosis-prediction")
 def tuberculosis():
     return render_template("tuberculosis.html")
 
 
-@app.errorhandler(404)
+@index.errorhandler(404)
 def page_not_found(e):
     return render_template("404.html"), 404
 
 
-if __name__ == "__main__":
-    app.run(debug=True)
+# if __name__ == "__main__":
+#     app.run(debug=True)
 
-
-# from flask import Blueprint, render_template, request, session, flash, redirect, url_for
-# from app.lib.prediction import process
-# from app.expertsystem import get_inference
 
 # index = Blueprint("index", __name__, url_prefix="/")
 

@@ -3,7 +3,8 @@
 set -x
 
 # Run tailwindcss with watch mode and go to background
-tailwindcss -w -i ./app/static/src/main.css -o ./app/static/dist/main.css --minify &
+# tailwindcss -i ./app/static/src/css/input.css -o ./app/static/dist/css/output.css --watch &
+yarn watch &
 
 flask run
 
