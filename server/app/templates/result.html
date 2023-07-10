@@ -1,9 +1,10 @@
-{% extends "layouts/app.html" %} {% block title %}Result{% endblock %} {% block
-head %} {{ super() }}
-<style type="text/css"></style>
-{% endblock %} {% block content %} {% if results | length > 0%}
-<div class="flex flex-col px-5 md:px-40">
-  <div class="w-full my-5 overflow-x-auto shadow-md sm:rounded-lg">
+{% extends "layouts/app.html" %} {% block page %} {% if results | length > 0 %}
+<div
+  class="flex flex-col items-center justify-center flex-grow w-full h-full px-5 md:px-40"
+>
+  <div
+    class="w-full my-5 overflow-x-auto shadow-md sm:rounded-lg max-w-[1024px]"
+  >
     <table
       class="w-full text-sm text-left text-gray-500 table-auto dark:text-gray-400"
     >
@@ -11,24 +12,31 @@ head %} {{ super() }}
         class="table-header-group text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
       >
         <tr>
-          <th scope="col" class="px-6 py-3">Algorithm</th>
-          <th scope="col" class="px-6 py-3">Result</th>
+          <th scope="col" class="px-6 py-3 text-base font-bold uppercase">
+            Algorithm
+          </th>
+          <th scope="col" class="px-6 py-3 text-base font-bold uppercase">
+            Results
+          </th>
         </tr>
       </thead>
+
       <tbody class="table-row-group">
         {% for result in results %}
         <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
           <th
             scope="row"
-            class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap"
+            class="px-6 py-4 text-base font-medium text-gray-900 dark:text-white whitespace-nowrap"
           >
             {{result["algorithm"]}}
           </th>
           <td class="px-6 py-4">
             {% if result["output"][0] == 0 %}
-            <span class="text-green-600">Not at risk of heart disease</span>
+            <span class="text-base font-medium text-green-600">
+              Not at risk
+            </span>
             {% else%}
-            <span class="text-red-600"> At risk of heart disease</span>
+            <span class="text-base font-medium text-red-600">At risk</span>
             {% endif%}
           </td>
         </tr>
@@ -36,16 +44,19 @@ head %} {{ super() }}
       </tbody>
     </table>
   </div>
+
+  <!-- <div
+    class="flex flex-col items-start justify-start w-full mt-5 text-lg font-medium text-neutral-700 max-w-[1024px]"
+  >
+    <h2 class="mb-2 font-bold text-bold text-neutral-700">Accuracy</h2>
+    <p>Logistic Regression: <strong>96.3%</strong></p>
+    <p>Naive Bayes: <strong>75.6%</strong></p>
+    <p>K-Nearest Neighbors: <strong>97.4%</strong></p>
+    <p>Decision Tree: <strong>97.8%</strong></p>
+  </div> -->
 </div>
 {% else %}
 <div class="flex flex-col items-center px-5 md:px-40">
   <h1>No result</h1>
-</div>
-{% endif %} {% if inference %}
-<div class="flex flex-col items-center px-5 md:px-40">
-  <div class="w-full mb-2">
-    <h1 class="font-bold text-gray-600">Inference</h1>
-  </div>
-  <p>{{inference}}</p>
 </div>
 {% endif %} {% endblock%}

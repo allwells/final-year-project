@@ -1,6 +1,4 @@
-# MULTI-RDPS
-
-Multiple Respiratory Disease Prediction System
+# Respiratory Disease Prediction System
 
 ## Run development server
 
