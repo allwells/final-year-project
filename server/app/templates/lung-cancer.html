@@ -21,22 +21,46 @@
   class="flex flex-col justify-start gap-10 items-center pt-20 flex-grow w-full max-w-[1024px] pb-20"
 >
   <h1 class="text-2xl font-light text-neutral-700">
-    Covid-19 Outcome Predictor
+    Lung Cancer Outcome Predictor
   </h1>
 
   <form
-    action="/predict-covid-19"
+    action="/predict-lung-cancer"
     method="POST"
     class="grid w-full grid-cols-1 gap-10"
   >
     <div class="grid w-full grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
       <div class="grid grid-cols-1 gap-2">
-        <label for="BreathingProblem" class="text-sm font-medium text-gray-700">
-          Breathing Problem
+        <label for="Gender" class="text-sm font-medium text-gray-700">
+          Gender
         </label>
         <select
-          name="BreathingProblem"
-          id="BreathingProblem"
+          name="Gender"
+          id="Gender"
+          class="w-full transition duration-300 text-base border border-transparent rounded-md h-[50px] px-3 !outline-0 bg-white hover:border-neutral-400 focus:border-primary placeholder-neutral-500 appearance-none"
+        >
+          <option disabled selected>Select an option</option>
+          <option value="0">Male</option>
+          <option value="1">Female</option>
+        </select>
+      </div>
+
+      <div class="grid grid-cols-1 gap-2">
+        <label for="Age" class="text-sm font-medium text-gray-700">Age</label>
+        <input
+          name="Age"
+          id="Age"
+          class="w-full transition duration-300 text-base border border-transparent rounded-md h-[50px] px-3 !outline-0 bg-white hover:border-neutral-400 focus:border-primary placeholder-neutral-500 appearance-none"
+        />
+      </div>
+
+      <div class="grid grid-cols-1 gap-2">
+        <label for="Smoking" class="text-sm font-medium text-gray-700">
+          Smoking
+        </label>
+        <select
+          name="Smoking"
+          id="Smoking"
           class="w-full transition duration-300 text-base border border-transparent rounded-md h-[50px] px-3 !outline-0 bg-white hover:border-neutral-400 focus:border-primary placeholder-neutral-500 appearance-none"
         >
           <option disabled selected>Select an option</option>
@@ -46,12 +70,12 @@
       </div>
 
       <div class="grid grid-cols-1 gap-2">
-        <label for="Fever" class="text-sm font-medium text-gray-700">
-          Fever
+        <label for="YellowFingers" class="text-sm font-medium text-gray-700">
+          Yellow Fingers
         </label>
         <select
-          name="Fever"
-          id="Fever"
+          name="YellowFingers"
+          id="YellowFingers"
           class="w-full transition duration-300 text-base border border-transparent rounded-md h-[50px] px-3 !outline-0 bg-white hover:border-neutral-400 focus:border-primary placeholder-neutral-500 appearance-none"
         >
           <option disabled selected>Select an option</option>
@@ -61,12 +85,12 @@
       </div>
 
       <div class="grid grid-cols-1 gap-2">
-        <label for="DryCough" class="text-sm font-medium text-gray-700">
-          Dry Cough
+        <label for="Anxiety" class="text-sm font-medium text-gray-700">
+          Anxiety
         </label>
         <select
-          name="DryCough"
-          id="DryCough"
+          name="Anxiety"
+          id="Anxiety"
           class="w-full transition duration-300 text-base border border-transparent rounded-md h-[50px] px-3 !outline-0 bg-white hover:border-neutral-400 focus:border-primary placeholder-neutral-500 appearance-none"
         >
           <option disabled selected>Select an option</option>
@@ -76,12 +100,12 @@
       </div>
 
       <div class="grid grid-cols-1 gap-2">
-        <label for="SoreThroat" class="text-sm font-medium text-gray-700">
-          Sore Throat
+        <label for="PeerPressure" class="text-sm font-medium text-gray-700">
+          Peer Pressure
         </label>
         <select
-          name="SoreThroat"
-          id="SoreThroat"
+          name="PeerPressure"
+          id="PeerPressure"
           class="w-full transition duration-300 text-base border border-transparent rounded-md h-[50px] px-3 !outline-0 bg-white hover:border-neutral-400 focus:border-primary placeholder-neutral-500 appearance-none"
         >
           <option disabled selected>Select an option</option>
@@ -91,105 +115,12 @@
       </div>
 
       <div class="grid grid-cols-1 gap-2">
-        <label for="RunningNose" class="text-sm font-medium text-gray-700">
-          Running Nose
+        <label for="ChronicDisease" class="text-sm font-medium text-gray-700">
+          Has any chronic disease?
         </label>
         <select
-          name="RunningNose"
-          id="RunningNose"
-          class="w-full transition duration-300 text-base border border-transparent rounded-md h-[50px] px-3 !outline-0 bg-white hover:border-neutral-400 focus:border-primary placeholder-neutral-500 appearance-none"
-        >
-          <option disabled selected>Select an option</option>
-          <option value="0">No</option>
-          <option value="1">Yes</option>
-        </select>
-      </div>
-
-      <div class="grid grid-cols-1 gap-2">
-        <label for="Asthma" class="text-sm font-medium text-gray-700">
-          Asthma
-        </label>
-        <select
-          name="Asthma"
-          id="Asthma"
-          class="w-full transition duration-300 text-base border border-transparent rounded-md h-[50px] px-3 !outline-0 bg-white hover:border-neutral-400 focus:border-primary placeholder-neutral-500 appearance-none"
-        >
-          <option disabled selected>Select an option</option>
-          <option value="0">No</option>
-          <option value="1">Yes</option>
-        </select>
-      </div>
-
-      <div class="grid grid-cols-1 gap-2">
-        <label
-          for="ChronicLungDisease"
-          class="text-sm font-medium text-gray-700"
-        >
-          Chronic Lung Disease
-        </label>
-        <select
-          name="ChronicLungDisease"
-          id="ChronicLungDisease"
-          class="w-full transition duration-300 text-base border border-transparent rounded-md h-[50px] px-3 !outline-0 bg-white hover:border-neutral-400 focus:border-primary placeholder-neutral-500 appearance-none"
-        >
-          <option disabled selected>Select an option</option>
-          <option value="0">No</option>
-          <option value="1">Yes</option>
-        </select>
-      </div>
-
-      <div class="grid grid-cols-1 gap-2">
-        <label for="Headache" class="text-sm font-medium text-gray-700">
-          Headache
-        </label>
-        <select
-          name="Headache"
-          id="Headache"
-          class="w-full transition duration-300 text-base border border-transparent rounded-md h-[50px] px-3 !outline-0 bg-white hover:border-neutral-400 focus:border-primary placeholder-neutral-500 appearance-none"
-        >
-          <option disabled selected>Select an option</option>
-          <option value="0">No</option>
-          <option value="1">Yes</option>
-        </select>
-      </div>
-
-      <div class="grid grid-cols-1 gap-2">
-        <label for="HeartDisease" class="text-sm font-medium text-gray-700">
-          Heart Disease
-        </label>
-        <select
-          name="HeartDisease"
-          id="HeartDisease"
-          class="w-full transition duration-300 text-base border border-transparent rounded-md h-[50px] px-3 !outline-0 bg-white hover:border-neutral-400 focus:border-primary placeholder-neutral-500 appearance-none"
-        >
-          <option disabled selected>Select an option</option>
-          <option value="0">No</option>
-          <option value="1">Yes</option>
-        </select>
-      </div>
-
-      <div class="grid grid-cols-1 gap-2">
-        <label for="Diabetes" class="text-sm font-medium text-gray-700">
-          Diabetes
-        </label>
-        <select
-          name="Diabetes"
-          id="Diabetes"
-          class="w-full transition duration-300 text-base border border-transparent rounded-md h-[50px] px-3 !outline-0 bg-white hover:border-neutral-400 focus:border-primary placeholder-neutral-500 appearance-none"
-        >
-          <option disabled selected>Select an option</option>
-          <option value="0">No</option>
-          <option value="1">Yes</option>
-        </select>
-      </div>
-
-      <div class="grid grid-cols-1 gap-2">
-        <label for="HyperTension" class="text-sm font-medium text-gray-700">
-          HyperTension
-        </label>
-        <select
-          name="HyperTension"
-          id="HyperTension"
+          name="ChronicDisease"
+          id="ChronicDisease"
           class="w-full transition duration-300 text-base border border-transparent rounded-md h-[50px] px-3 !outline-0 bg-white hover:border-neutral-400 focus:border-primary placeholder-neutral-500 appearance-none"
         >
           <option disabled selected>Select an option</option>
@@ -214,12 +145,12 @@
       </div>
 
       <div class="grid grid-cols-1 gap-2">
-        <label for="Gastrointestinal" class="text-sm font-medium text-gray-700">
-          Gastrointestinal
+        <label for="Allergy" class="text-sm font-medium text-gray-700">
+          Has allergies?
         </label>
         <select
-          name="Gastrointestinal"
-          id="Gastrointestinal"
+          name="Allergy"
+          id="Allergy"
           class="w-full transition duration-300 text-base border border-transparent rounded-md h-[50px] px-3 !outline-0 bg-white hover:border-neutral-400 focus:border-primary placeholder-neutral-500 appearance-none"
         >
           <option disabled selected>Select an option</option>
@@ -229,12 +160,12 @@
       </div>
 
       <div class="grid grid-cols-1 gap-2">
-        <label for="TravelAbroad" class="text-sm font-medium text-gray-700">
-          Travel Abroad
+        <label for="Wheezing" class="text-sm font-medium text-gray-700">
+          Wheezing
         </label>
         <select
-          name="TravelAbroad"
-          id="TravelAbroad"
+          name="Wheezing"
+          id="Wheezing"
           class="w-full transition duration-300 text-base border border-transparent rounded-md h-[50px] px-3 !outline-0 bg-white hover:border-neutral-400 focus:border-primary placeholder-neutral-500 appearance-none"
         >
           <option disabled selected>Select an option</option>
@@ -244,15 +175,12 @@
       </div>
 
       <div class="grid grid-cols-1 gap-2">
-        <label
-          for="ContactWithCOVIDPatient"
-          class="text-sm font-medium text-gray-700"
-        >
-          Contact With COVID Patient
+        <label for="AlcoholConsuming" class="text-sm font-medium text-gray-700">
+          Consumes alcohol?
         </label>
         <select
-          name="ContactWithCOVIDPatient"
-          id="ContactWithCOVIDPatient"
+          name="AlcoholConsuming"
+          id="AlcoholConsuming"
           class="w-full transition duration-300 text-base border border-transparent rounded-md h-[50px] px-3 !outline-0 bg-white hover:border-neutral-400 focus:border-primary placeholder-neutral-500 appearance-none"
         >
           <option disabled selected>Select an option</option>
@@ -262,15 +190,12 @@
       </div>
 
       <div class="grid grid-cols-1 gap-2">
-        <label
-          for="AttendedLargeGatherings"
-          class="text-sm font-medium text-gray-700"
-        >
-          Attended Large Gatherings
+        <label for="Coughing" class="text-sm font-medium text-gray-700">
+          Coughing
         </label>
         <select
-          name="AttendedLargeGatherings"
-          id="AttendedLargeGatherings"
+          name="Coughing"
+          id="Coughing"
           class="w-full transition duration-300 text-base border border-transparent rounded-md h-[50px] px-3 !outline-0 bg-white hover:border-neutral-400 focus:border-primary placeholder-neutral-500 appearance-none"
         >
           <option disabled selected>Select an option</option>
@@ -280,48 +205,12 @@
       </div>
 
       <div class="grid grid-cols-1 gap-2">
-        <label
-          for="VisitedExposedPublicPlaces"
-          class="text-sm font-medium text-gray-700"
-        >
-          Visited Exposed Public Places
+        <label for="BreathShortage" class="text-sm font-medium text-gray-700">
+          Shortage of breath?
         </label>
         <select
-          name="VisitedExposedPublicPlaces"
-          id="VisitedExposedPublicPlaces"
-          class="w-full transition duration-300 text-base border border-transparent rounded-md h-[50px] px-3 !outline-0 bg-white hover:border-neutral-400 focus:border-primary placeholder-neutral-500 appearance-none"
-        >
-          <option disabled selected>Select an option</option>
-          <option value="0">No</option>
-          <option value="1">Yes</option>
-        </select>
-      </div>
-
-      <div class="grid grid-cols-1 gap-2">
-        <label
-          for="FamilyWorkingInExposedPublicPlaces"
-          class="text-sm font-medium text-gray-700"
-        >
-          Family Working in Public Exposed Places
-        </label>
-        <select
-          name="FamilyWorkingInExposedPublicPlaces"
-          id="FamilyWorkingInExposedPublicPlaces"
-          class="w-full transition duration-300 text-base border border-transparent rounded-md h-[50px] px-3 !outline-0 bg-white hover:border-neutral-400 focus:border-primary placeholder-neutral-500 appearance-none"
-        >
-          <option disabled selected>Select an option</option>
-          <option value="0">No</option>
-          <option value="1">Yes</option>
-        </select>
-      </div>
-
-      <div class="grid grid-cols-1 gap-2">
-        <label for="WearingMasks" class="text-sm font-medium text-gray-700">
-          Wearing Masks
-        </label>
-        <select
-          name="WearingMasks"
-          id="WearingMasks"
+          name="BreathShortage"
+          id="BreathShortage"
           class="w-full transition duration-300 text-base border border-transparent rounded-md h-[50px] px-3 !outline-0 bg-white hover:border-neutral-400 focus:border-primary placeholder-neutral-500 appearance-none"
         >
           <option disabled selected>Select an option</option>
@@ -332,14 +221,29 @@
 
       <div class="grid grid-cols-1 gap-2">
         <label
-          for="SanitizationFromMarket"
+          for="SwallowingDifficulty"
           class="text-sm font-medium text-gray-700"
         >
-          Sanitization from Market
+          Difficulty in swallowing?
         </label>
         <select
-          name="SanitizationFromMarket"
-          id="SanitizationFromMarket"
+          name="SwallowingDifficulty"
+          id="SwallowingDifficulty"
+          class="w-full transition duration-300 text-base border border-transparent rounded-md h-[50px] px-3 !outline-0 bg-white hover:border-neutral-400 focus:border-primary placeholder-neutral-500 appearance-none"
+        >
+          <option disabled selected>Select an option</option>
+          <option value="0">No</option>
+          <option value="1">Yes</option>
+        </select>
+      </div>
+
+      <div class="grid grid-cols-1 gap-2">
+        <label for="ChestPain" class="text-sm font-medium text-gray-700">
+          Has chest pain?
+        </label>
+        <select
+          name="ChestPain"
+          id="ChestPain"
           class="w-full transition duration-300 text-base border border-transparent rounded-md h-[50px] px-3 !outline-0 bg-white hover:border-neutral-400 focus:border-primary placeholder-neutral-500 appearance-none"
         >
           <option disabled selected>Select an option</option>
@@ -354,7 +258,7 @@
         type="submit"
         class="px-6 py-2 text-lg font-medium text-white transition duration-300 rounded bg-primary hover:bg-red-700 focus:outline-none focus:shadow-outline"
       >
-        Predict
+        Predict Lung Cancer
       </button>
     </div>
   </form>
