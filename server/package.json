@@ -10,6 +10,6 @@
     "watch": "yarn tailwindcss -i ./app/static/src/css/input.css -o ./app/static/dist/css/output.css --watch"
   },
   "dependencies": {
-    "tailwindcss": "^3.3.2"
+    "tailwindcss": "^4.3.1"
   }
 }
