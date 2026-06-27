@@ -1,21 +1,63 @@
-# Development
+# Server
 
-## Make the run script executable
+Flask backend for the Respiratory Disease Prediction System.
 
-- `chmod +x run.sh`
+## Prerequisites
 
-## Setup virtual environment
+- Python 3.8+
+- pip
 
-- `python -m venv env`
+## Setup
 
-## Activate virtual environment
+**1. Create and activate a virtual environment**
 
-- `source env/bin/activate`
+```bash
+python -m venv env
+source env/bin/activate
+```
 
-## Install dependencies
+**2. Install dependencies**
 
-- `pip install -r requirements.txt`
+```bash
+pip install -r requirements.txt
+```
 
-## Start development server
+**3. Make the run script executable** (first time only)
 
-- `./run.sh`
+```bash
+chmod +x run.sh
+```
+
+## Running the Development Server
+
+```bash
+./run.sh
+```
+
+This starts the Flask development server. The app will be available at `http://127.0.0.1:5000`.
+
+The environment is configured via `.flaskenv`:
+- `FLASK_APP=app`
+- `FLASK_ENV=development`
+
+## Rebuilding ML Models
+
+Pre-trained models are already serialized in `app/utils/models/`. If you need to retrain them (e.g., after updating a dataset), run the builder scripts from inside the `app/utils/builders/` directory:
+
+```bash
+cd app/utils/builders
+python lung_cancer_model_builder.py
+python covid19_model_builder.py
+```
+
+This reads the CSVs from `app/utils/data/`, trains all four classifiers, and writes new `.pkl` files to `app/utils/models/`.
+
+## Production Deployment
+
+The app is Heroku-compatible. A `Procfile` is included that runs the app with Gunicorn:
+
+```
+web: gunicorn run:app
+```
+
+Use `deploy.sh` or push to a Heroku-connected remote to deploy.
